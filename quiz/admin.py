@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Category, Quizzes, Answer, Question
 
+from .models import Answer, Category, Question, Quizzes
 
 # Register your models here.
 

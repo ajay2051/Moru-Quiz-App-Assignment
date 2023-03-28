@@ -44,7 +44,6 @@ class Updated(models.Model):
 # Abstract Base Class is used when same information is used in multiple table.
 
 class Question(Updated):
-
     class Meta:
         verbose_name = _("Question")
         verbose_name_plural = _("Questions")
@@ -75,7 +74,6 @@ class Question(Updated):
 
 
 class Answer(Updated):
-
     class Meta:
         verbose_name = _("Answer")
         verbose_name_plural = _("Answers")
@@ -84,3 +82,6 @@ class Answer(Updated):
     question = models.ForeignKey(Question, related_name="answer", on_delete=models.DO_NOTHING)
     answer_text = models.CharField(max_length=255, verbose_name=_("Answer Text"))
     is_right = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.answer_text
